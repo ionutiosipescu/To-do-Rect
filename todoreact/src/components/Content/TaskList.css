@@ -1,0 +1,56 @@
+/* CONTAINER LIST - { h2 , select , ul } */
+.container-list {
+  width: 100%;
+  margin: 50px 0 20px;
+}
+.container-list h2 {
+  display: inline;
+}
+.container-list select {
+  all: unset;
+  padding: 5px;
+  margin-left: 20px;
+  border: 0;
+  box-shadow: 0 0 15px 4px rgb(0 0 0 / 6%);
+  border-radius: 10px;
+  background-color: #fff;
+  width: 100px;
+  cursor: pointer;
+}
+/* ul */
+.task-group {
+  list-style-type: none;
+}
+/* li */
+.task-item {
+  padding: 10px 20px;
+  border: 0;
+  box-shadow: 0 0 15px 4px rgb(0 0 0 / 6%);
+  border-radius: 10px;
+  background-color: #fff;
+  width: 100%;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* li {text, date} */
+.task-info {
+  display: flex;
+  flex-direction: column;
+}
+/* li date */
+.task-info .date {
+  font-size: 14px;
+}
+/* Badges */
+.task-complete {
+  background-color: lightgrey;
+  opacity: 0.7;
+}
+.task-complete span span:nth-child(1) {
+  text-decoration: line-through;
+}
+.first {
+  display: none;
+}
