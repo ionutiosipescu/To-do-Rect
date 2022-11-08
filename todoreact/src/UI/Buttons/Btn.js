@@ -8,7 +8,7 @@ export default function Btn(props) {
       className={`btn ${props.className}`}
       onClick={props.onClick}
       disabled={props.disabled}>
-      <span>{props.children}</span>
+      <div>{props.children}</div>
     </button>
   );
 }

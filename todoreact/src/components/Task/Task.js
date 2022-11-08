@@ -1,11 +1,12 @@
-import React, { useEffect, useRef, useState } from "react";
-import { DataTasks } from "../../App";
+import React, { useState } from "react";
+import { DataContext } from "../Application/Application";
 import { useContext } from "react";
-import "./Task.css";
-import { CSSTransition } from "react-transition-group";
+import Btn from "../../UI/Buttons/Btn";
+import { REMOVE } from "../CONFIG/Config";
+// import { CSSTransition } from "react-transition-group";
 
 export default function Task({ text, date, task }) {
-  const { tasks, setTasks } = useContext(DataTasks);
+  const { tasks, setTasks } = useContext(DataContext);
   const [animState, setAnimState] = useState(true);
 
   // Events
@@ -28,31 +29,31 @@ export default function Task({ text, date, task }) {
     );
   };
   return (
-    <CSSTransition
-      in={animState}
-      key={task}
-      timeout={700}
-      classNames="animation"
-      unmountOnExit
-      onExit={animState}>
-      <li className={`task-item  ${task.status && "task-complete"}`}>
-        <span className="task-info">
-          <span className="text">{text}</span>
-          <span className="date">{date}</span>
-        </span>
-        <span className="task-btn">
-          <button
-            onClick={completeHandler}
-            className={`btn btn-mark ${
-              task.status === true ? "btn-uncomplete" : "btn-complete"
-            }`}>
-            {`${task.status === true ? "Undone" : "Done"}`}
-          </button>
-          <button onClick={deleteHandler} className="btn btn-remove">
-            Remove
-          </button>
-        </span>
-      </li>
-    </CSSTransition>
+    // <CSSTransition
+    //   in={animState}
+    //   key={task}
+    //   timeout={700}
+    //   classNames="animation"
+    //   unmountOnExit
+    //   onExit={animState}>
+    <li className={`task-item  ${task.status && "task-complete"}`}>
+      <span className="task-info">
+        <span className="text">{text}</span>
+        <span className="date">{date}</span>
+      </span>
+      <span className="task-btn">
+        <Btn
+          onClick={completeHandler}
+          className={`${
+            task.status === true ? "btn-uncomplete" : "btn-complete"
+          }`}>
+          {`${task.status === true ? "Undone" : "Done"}`}
+        </Btn>
+        <Btn onClick={deleteHandler} className="btn-remove">
+          <REMOVE />
+        </Btn>
+      </span>
+    </li>
+    // </CSSTransition>
   );
 }
